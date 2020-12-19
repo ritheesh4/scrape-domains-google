@@ -1,4 +1,4 @@
-# scrape-it
+# scrapy-G
 To scrape domains and urls based on the search keryword.
 
 ## Run the script
