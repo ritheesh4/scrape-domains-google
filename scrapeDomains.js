@@ -17,22 +17,13 @@ const currentAffairs = (html, filename) => {
   const getData = (domainNumber) => {
     const data = {};
 
-    // data["domainNumber"] = $("td[class=bix-td-qtxt]").eq(domainNumber).text()
-
     data["Url"] = $('div.yuRUbf')
       .find('>a').eq(domainNumber).attr('href')
     const url = $('div.yuRUbf')
       .find('>a').eq(domainNumber).attr('href')
     const newURl = new URL(url)
     data["Domain"] = newURl.hostname
-    // data["B"] = $("td[class=bix-td-miscell]").eq(domainNumber).find('td').eq(3).text()
-    // data["C"] = $("td[class=bix-td-miscell]").eq(domainNumber).find('td').eq(5).text()
-    // data["D"] = $("td[class=bix-td-miscell]").eq(domainNumber).find('td').eq(7).text()
-
-    // data["Answer"] = $("input[class=jq-hdnakq]").eq(domainNumber).val()
-
-    // data["Solution"] = $("div[class=bix-ans-description]").eq(domainNumber).text()
-
+    
     return data;
   };
 

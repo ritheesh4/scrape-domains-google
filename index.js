@@ -1,11 +1,11 @@
 const services = require("./services");
 const scrapeDomains = require("./scrapeDomains");
+const { getDate } = require("./services");
 
 (async () => {
 
-  let listOfDates = services.rangeOfDates()
   const url = 'https://www.google.com/search?q=india+news'
-  const filename = `./output/scrape-domains-${listOfDates[0]}.csv`;
+  const filename = `./output/scrape-domains-${getDate()}.csv`;
   services.createFile(filename);
   let result = await services.getHtml(url);
   let html = result[0];
@@ -30,6 +30,7 @@ const scrapeDomains = require("./scrapeDomains");
       return false
     }
   }
+  
   for (let i = 2; i < 20; i++) {
     await fetchNew(i)
   }

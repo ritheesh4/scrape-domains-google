@@ -68,9 +68,9 @@ async function getHtml(url) {
 
 function getDate() {
   var d = new Date(),
-    month = "" + (d.getMonth() + 1) + "-",
-    day = "" + (d.getDate() - 3),
-    year = d.getFullYear() + "-";
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
 
   if (month.length < 2) month = "0" + month;
   if (day.length < 2) day = "0" + day;
@@ -78,24 +78,9 @@ function getDate() {
   return [year, month, day].join("");
 }
 
-let getDaysArray = function (start, end) {
-  let arr = []
-  for (arr, dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
-    arr.push(new Date(dt).toISOString().slice(0, 10));
-  }
-  return arr;
-};
-
-function rangeOfDates() {
-  let dayList = getDaysArray(new Date("2020-12-6"), new Date("2020-12-06"));
-  return dayList
-}
-
-
 module.exports = {
   appendToFile,
   getHtml,
   createFile,
-  getDate,
-  rangeOfDates
+  getDate
 };
