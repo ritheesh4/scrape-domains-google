@@ -6,5 +6,6 @@ To scrape domains and urls based on the search keryword.
   git clone https://github.com/ritheesh4/scrape-domains-google.git
   cd scrape-domains-google
   yarn install
+  Replace the searchString with the search keyword
   node index.js
 ```
