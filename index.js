@@ -14,8 +14,10 @@ const cheerio = require("cheerio");
   const browser = result[2];
   let pageNumbers = await page.$$('table tr td');
 
+  // Initial page load
   scrapeDomains(html, filename);
 
+  // Next page
   const fetchNew = async (i) => {
     try {
 
@@ -38,7 +40,7 @@ const cheerio = require("cheerio");
 
       await pageNumbers[currentPageNUmber()].click()
       var page = await browser.targets()[browser.targets().length - 1].page();
-      const delay = 3 * 1000; // 1 minutes
+      const delay = 3 * 1000; // 3seconds
       await new Promise((resolve) => setTimeout(resolve, delay));
       let currentHtml = await page.content();
       html = currentHtml;
